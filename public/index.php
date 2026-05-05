@@ -4,9 +4,10 @@ define('ROOT_PATH', dirname(__DIR__));
 define('APP_URL',   '/KTRA2_LTWEB/public');
 
 require_once ROOT_PATH . '/config/config.php';
-require_once ROOT_PATH . '/core/database.php';
+require_once ROOT_PATH . '/config/database.php';
 require_once ROOT_PATH . '/models/User.php';
 require_once ROOT_PATH . '/controllers/AuthController.php';
+require_once ROOT_PATH . '/services/AuthService.php'; 
 
 $pageTitle = 'MOW Garden';
 $cartCount = 0;

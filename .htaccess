@@ -2,5 +2,5 @@ Options -Indexes
 RewriteEngine On
 
 # Chuyển hướng tất cả request vào public/
-RewriteCond %{REQUEST_URI} !^/shop/public/
+RewriteCond %{REQUEST_URI} !^/KTRA2_LTWEB/public/
 RewriteRule ^(.*)$ public/$1 [L]
