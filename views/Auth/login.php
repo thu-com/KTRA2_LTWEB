@@ -25,13 +25,6 @@
                     <a href="<?= APP_URL ?>/auth/register" style="color:var(--primary);font-weight:600">Đăng ký ngay</a>
                 </p>
             </div>
-
-            <!-- Tài khoản demo -->
-            <div style="background:#f8f9fa;border-radius:8px;padding:14px;margin-top:16px;font-size:.82rem;color:#555">
-                <strong>🔑 Tài khoản demo:</strong><br>
-                <span>Admin: admin@shop.com / 123456</span><br>
-                <span>User: user@shop.com / 123456</span>
-            </div>
         </div>
     </div>
 </div>
