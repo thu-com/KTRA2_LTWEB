@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle ?? 'OOP Shop') ?> – OOP Shop</title>
+    <title><?= htmlspecialchars($pageTitle ?? 'MOW Shop') ?> – MOW Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
@@ -120,7 +120,7 @@
 <body>
 
 <nav class="navbar">
-    <a href="<?= APP_URL ?>/" class="brand">🛒 OOP<span>Shop</span></a>
+    <a href="<?= APP_URL ?>/" class="brand">🛒 MOW<span>Shop</span></a>
     <a href="<?= APP_URL ?>/products">Sản phẩm</a>
     <?php if (\AuthService::isLoggedIn()): ?>
         <a href="<?= APP_URL ?>/cart">

@@ -9,10 +9,10 @@
         <div class="card-body">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
                 <!-- Ảnh -->
-                <div style="background:linear-gradient(135deg,#f8f9fa,#e9ecef);border-radius:12px;
-                            height:320px;display:flex;align-items:center;justify-content:center;font-size:6rem">
-                    🛍️
-                </div>
+                <img src="<?= APP_URL ?>/assets/images/products/<?= htmlspecialchars($product->getImage()) ?>"
+     alt="<?= htmlspecialchars($product->getName()) ?>"
+     onerror="this.src='<?= APP_URL ?>/assets/images/products/default.jpg'"
+     style="width:100%; height:400px; object-fit:cover ; border-radius:10px; border:1px solid #e9ecef;">
                 <!-- Thông tin -->
                 <div style="display:flex;flex-direction:column;gap:16px">
                     <h1 style="font-size:1.4rem;color:var(--dark)"><?= htmlspecialchars($product->getName()) ?></h1>
@@ -68,15 +68,24 @@
     </div>
 
     <!-- Sản phẩm liên quan -->
-    <?php if (!empty($related)): ?>
-    <div style="margin-top:32px">
+<?php if (!empty($related)): ?>
+    <div style="margin-top:30px">
         <h2 style="font-size:1.2rem;color:var(--dark);margin-bottom:16px">
             <i class="fa fa-th"></i> Sản phẩm tương tự
         </h2>
         <div class="grid grid-4">
             <?php foreach ($related as $r): ?>
             <div class="card">
-                <div style="height:120px;background:#f8f9fa;display:flex;align-items:center;justify-content:center;font-size:2.5rem">🛍️</div>
+                
+                <!-- Bắt đầu phần hiển thị ảnh đã sửa -->
+                <div style="height:200px; background:#f8f9fa; overflow:hidden;">
+                    <img src="<?= APP_URL ?>/assets/images/products/<?= htmlspecialchars($r->getImage()) ?>"
+                         alt="<?= htmlspecialchars($r->getName()) ?>"
+                         onerror="this.src='<?= APP_URL ?>/assets/images/products/default.jpg'"
+                         style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <!-- Kết thúc phần hiển thị ảnh -->
+
                 <div class="card-body" style="padding:12px">
                     <a href="<?= APP_URL ?>/products/<?= $r->getId() ?>" style="font-weight:600;font-size:.9rem;color:var(--dark)">
                         <?= htmlspecialchars($r->getName()) ?>
@@ -87,8 +96,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <?php endif; ?>
-</div>
+<?php endif; ?>
 
 <script>
 const btnAdd = document.getElementById('btn-detail-add');

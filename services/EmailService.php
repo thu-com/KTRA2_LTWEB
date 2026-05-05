@@ -9,17 +9,17 @@ class EmailService
 
     public function sendOrderConfirmation(array $user, array $order): bool
     {
-        $subject = "[OOP Shop] Xác nhận đơn hàng #{$order['id']}";
+        $subject = "[MOW Shop] Xác nhận đơn hàng #{$order['id']}";
         $body    = $this->buildOrderConfirmationHtml($user, $order);
         return $this->send($user['email'], $user['name'], $subject, $body);
     }
 
     public function sendShippingNotification(array $user, array $order): bool
     {
-        $subject = "[OOP Shop] Đơn hàng #{$order['id']} đang được giao";
+        $subject = "[MOW Shop] Đơn hàng #{$order['id']} đang được giao";
         $body    = "<p>Kính gửi <strong>{$user['name']}</strong>,</p>
                     <p>Đơn hàng <strong>#{$order['id']}</strong> đang được giao.</p>
-                    <p>Trân trọng,<br><strong>OOP Shop</strong></p>";
+                    <p>Trân trọng,<br><strong>MOW Shop</strong></p>";
         return $this->send($user['email'], $user['name'], $subject, $body);
     }
 
@@ -83,7 +83,7 @@ class EmailService
 
         return "<!DOCTYPE html><html><body style='font-family:Arial,sans-serif'>
         <div style='max-width:600px;margin:auto;background:#fff;padding:20px;border:1px solid #eee'>
-            <h2 style='color:#e67e22'>🛒 OOP Shop - Xác nhận đơn hàng</h2>
+            <h2 style='color:#e67e22'>🛒 MOW Shop - Xác nhận đơn hàng</h2>
             <p>Kính gửi <strong>{$user['name']}</strong>,</p>
             <p>Đơn hàng <strong>#{$order['id']}</strong> đã đặt thành công!</p>
             <table style='width:100%;border-collapse:collapse'>
@@ -104,7 +104,7 @@ class EmailService
                 </tr>
             </table>
             <p style='margin-top:20px'>Địa chỉ: <em>{$order['shipping_address']}</em></p>
-            <p>Trân trọng,<br><strong>OOP Shop Team</strong></p>
+            <p>Trân trọng,<br><strong>MOW Shop Team</strong></p>
         </div></body></html>";
     }
 }
