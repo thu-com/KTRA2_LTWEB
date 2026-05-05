@@ -28,11 +28,7 @@
         <div class="cart-row" id="row-<?= $item['product_id'] ?>"
              style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--border)">
             <!-- Icon -->
-                        <div style="height:180px;overflow:hidden;position:relative">
-    <img src="<?= APP_URL ?>/assets/images/products/<?= htmlspecialchars($product->getImage()) ?>"
-         alt="<?= htmlspecialchars($product->getName()) ?>"
-         onerror="this.src='<?= APP_URL ?>/assets/images/products/default.jpg'"
-         style="width:100%;height:100%;object-fit:cover">
+            <div style="width:64px;height:64px;background:#f8f9fa;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0">🛍️</div>
             <!-- Info -->
             <div style="flex:1;min-width:0">
                 <a href="<?= APP_URL ?>/products/<?= $item['product_id'] ?>"
