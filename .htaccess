@@ -1,6 +1,6 @@
 Options -Indexes
 RewriteEngine On
-
-# Chuyển hướng tất cả request vào public/
-RewriteCond %{REQUEST_URI} !^/KTRA2_LTWEB/public/
-RewriteRule ^(.*)$ public/$1 [L]
+RewriteBase /KTRA2_LTWEB/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
