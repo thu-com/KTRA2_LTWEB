@@ -2,7 +2,7 @@
 //  config/config.php  –  Cấu hình ứng dụng
 
 define('APP_NAME',    'Quản lý bán cây cảnh');
-define('APP_URL',     'http://localhost/project/KTRA2_LTWEB/public/');
+define('APP_URL',     'https://github.com/thu-com/KTRA2_LTWEB.git');
 define('APP_VERSION', '1.0.0');
 
 // ── Cấu hình Database ──────────────────────────────────────
