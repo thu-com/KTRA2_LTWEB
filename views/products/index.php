@@ -44,8 +44,11 @@
     <?php foreach ($products as $product): ?>
     <div class="card" style="display:flex;flex-direction:column;transition:.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
         <a href="<?= APP_URL ?>/products/<?= $product->getId() ?>">
-            <div style="height:180px;background:linear-gradient(135deg,#f8f9fa,#e9ecef);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative">
-                🛍️
+            <div style="height:180px;overflow:hidden;position:relative">
+    <img src="<?= APP_URL ?>/assets/images/products/<?= htmlspecialchars($product->getImage()) ?>"
+         alt="<?= htmlspecialchars($product->getName()) ?>"
+         onerror="this.src='<?= APP_URL ?>/assets/images/products/default.jpg'"
+         style="width:100%;height:100%;object-fit:cover">
                 <?php if ($product->getStock() === 0): ?>
                     <span style="position:absolute;top:8px;right:8px;background:var(--danger);color:#fff;font-size:.7rem;padding:3px 8px;border-radius:4px;font-weight:700">HẾT HÀNG</span>
                 <?php elseif ($product->getStock() < 5): ?>
