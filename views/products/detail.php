@@ -46,10 +46,6 @@
                             <i class="fa fa-bolt"></i> Mua ngay
                         </a>
 
-                        <a href="<?= APP_URL ?>/checkout" class="btn btn-success" id="btn-buy-now" data-id="<?= $product->getId() ?>">
-                            <i class="fa fa-bolt"></i> Mua ngay
-                        </a>
-
                         <?php else: ?>
                         <a href="<?= APP_URL ?>/auth/login" class="btn btn-primary">
                             <i class="fa fa-sign-in-alt"></i> Đăng nhập để mua hàng
@@ -125,39 +121,6 @@ if (btnAdd) {
         .finally(() => { this.innerHTML = orig; this.disabled = false; });
     });
 }
-const btnBuyNow = document.getElementById('btn-buy-now');
-if (btnBuyNow) {
-    btnBuyNow.addEventListener('click', function() {
-        const qty  = parseInt(document.getElementById('detail-qty').value) || 1;
-        const id   = this.dataset.id;
-        const orig = this.innerHTML;
-        this.innerHTML = '<span class="spinner"></span>';
-        this.disabled  = true;
 
-        fetch('<?= APP_URL ?>/cart/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type'     : 'application/x-www-form-urlencoded',
-                'X-Requested-With' : 'XMLHttpRequest'
-            },
-            body: `product_id=${id}&quantity=${qty}`
-        })
-        .then(r => r.json())
-        .then(d => {
-            if (d.success) {
-                window.location.href = '<?= APP_URL ?>/checkout';
-            } else {
-                showToast(d.message, 'error');
-                this.innerHTML = orig;
-                this.disabled  = false;
-            }
-        })
-        .catch(() => {
-            showToast('Lỗi kết nối', 'error');
-            this.innerHTML = orig;
-            this.disabled  = false;
-        });
-    });
-}
 </script>
 
