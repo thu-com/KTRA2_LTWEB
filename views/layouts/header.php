@@ -7,13 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary: #e67e22; --primary-dark: #d35400;
-            --dark: #2c3e50; --light: #f8f9fa;
-            --success: #27ae60; --danger: #e74c3c; --info: #3498db;
-            --border: #dee2e6; --shadow: 0 2px 12px rgba(0,0,0,.08);
+                --primary:      #3a6b45;   
+                --primary-dark: #2a4f33;   
+                --dark:         #1e2d1e;   
+                --light:        #f7f3ec;   
+                --success:      #27ae60;   
+                --danger:       #e74c3c;   
+                --info:         #2980b9;   
+                --border:       #dde8dd;   
+                --shadow:       0 2px 12px rgba(30,45,30,.08);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f8; color: #333; min-height: 100vh; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f7f3ec; color: #333; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
 
         /* ── Navbar ── */
@@ -33,7 +38,7 @@
         }
         .nav-user { color: #aaa; font-size: .85rem; }
         .btn-nav {
-            background: var(--primary); color: #fff !important; padding: 6px 14px !important;
+            background: var(--primary); color: var(--primary); padding: 6px 14px !important;
             border-radius: 6px; font-weight: 600;
         }
         .btn-nav:hover { background: var(--primary-dark) !important; }
