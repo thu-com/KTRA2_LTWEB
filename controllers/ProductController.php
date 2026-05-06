@@ -22,7 +22,7 @@ class ProductController extends BaseController
         $search  = $this->sanitize($this->get('search', ''));
         $catId   = (int)$this->get('cat', 0);
         $page    = max(1, (int)$this->get('page', 1));
-        $perPage = 12;
+        $perPage = 10;
         $offset  = ($page - 1) * $perPage;
 
         $filters = [

@@ -1,6 +1,6 @@
 Options -Indexes
 RewriteEngine On
-RewriteBase /KTRA2_LTWEB/public/
+RewriteBase /project/KTRA2_LTWEB/public/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [L]
