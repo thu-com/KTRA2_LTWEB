@@ -157,4 +157,4 @@ if (btnBuyNow) {
     });
 }
 </script>
-
+</div>
