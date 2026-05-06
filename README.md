@@ -1,10 +1,10 @@
-# 🛒 MOW Shop – Bài Tập Lập Trình Hướng Đối Tượng
+#  MOW Shop – Bài Tập Lập Trình Hướng Đối Tượng
 
 ## Giỏ Hàng & Đơn Đặt Hàng với Strategy Pattern
 
 ---
 
-## 📐 Kiến trúc & Design Patterns sử dụng
+## Kiến trúc & Design Patterns sử dụng
 
 | Pattern | Áp dụng ở |
 |---|---|
@@ -16,7 +16,7 @@
 
 ---
 
-## 📂 Cấu trúc thư mục
+##  Cấu trúc thư mục
 
 ```
 shop/
@@ -151,7 +151,7 @@ http://localhost/shop/public/
 
 ---
 
-## 🔑 Tài khoản demo
+## Tài khoản demo
 
 | Vai trò | Email | Mật khẩu |
 |---|---|---|
@@ -161,35 +161,35 @@ http://localhost/shop/public/
 
 ---
 
-## ✨ Tính năng đầy đủ
+##  Tính năng đầy đủ
 
-### Yêu cầu cơ bản ✅
-- ✅ Giỏ hàng chỉ dành cho người dùng đã đăng nhập
-- ✅ Thêm sản phẩm vào giỏ (AJAX + fallback)
-- ✅ Xóa sản phẩm khỏi giỏ hàng (AJAX)
-- ✅ Cập nhật số lượng (AJAX realtime)
-- ✅ Tạo đơn hàng với tính tổng tiền, VAT, phí vận chuyển
-- ✅ 3 chiến lược giá (Strategy Pattern)
+### Yêu cầu cơ bản 
+- Giỏ hàng chỉ dành cho người dùng đã đăng nhập
+-  Thêm sản phẩm vào giỏ (AJAX + fallback)
+-  Xóa sản phẩm khỏi giỏ hàng (AJAX)
+-  Cập nhật số lượng (AJAX realtime)
+-  Tạo đơn hàng với tính tổng tiền, VAT, phí vận chuyển
+- 3 chiến lược giá (Strategy Pattern)
 
-### Yêu cầu nâng cao ✅
-- ✅ **Persistent Cart** – Giỏ hàng lưu vào DB, không mất khi tắt trình duyệt
-- ✅ **Email tự động** – Ghi log email vào `logs/emails.log` sau khi đặt hàng
-- ✅ **Cập nhật tồn kho** – Stock tự động giảm khi đặt hàng thành công
-- ✅ **Admin panel** – Quản lý & cập nhật trạng thái đơn hàng
+### Yêu cầu nâng cao 
+-  **Persistent Cart** – Giỏ hàng lưu vào DB, không mất khi tắt trình duyệt
+-  **Email tự động** – Ghi log email vào `logs/emails.log` sau khi đặt hàng
+-  **Cập nhật tồn kho** – Stock tự động giảm khi đặt hàng thành công
+-  **Admin panel** – Quản lý & cập nhật trạng thái đơn hàng
 
-### OOP ✅
-- ✅ `class Product`, `CartItem`, `ShoppingCart`, `Order`, `User`
-- ✅ `interface PricingStrategyInterface`, `RepositoryInterface`
-- ✅ `abstract class` qua `BaseController`
-- ✅ Strategy Pattern với 3 concrete classes
-- ✅ Singleton Pattern (Database)
-- ✅ Repository Pattern (Data Access)
-- ✅ Dependency Injection (Service constructors)
-- ✅ MVC Architecture
+### OOP 
+-  `class Product`, `CartItem`, `ShoppingCart`, `Order`, `User`
+-  `interface PricingStrategyInterface`, `RepositoryInterface`
+-  `abstract class` qua `BaseController`
+-  Strategy Pattern với 3 concrete classes
+-  Singleton Pattern (Database)
+-  Repository Pattern (Data Access)
+-  Dependency Injection (Service constructors)
+-  MVC Architecture
 
 ---
 
-## 📧 Kiểm tra email log
+##  Kiểm tra email log
 
 Sau khi đặt hàng thành công, xem file:
 ```
@@ -198,7 +198,7 @@ shop/logs/emails.log
 
 ---
 
-## 🛒 Strategy Pattern – Các chiến lược giá
+##  Strategy Pattern – Các chiến lược giá
 
 | Chiến lược | VAT | Phí vận chuyển |
 |---|---|---|
