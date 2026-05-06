@@ -1,8 +1,7 @@
 <?php
-// ============================================================
+
 //  repositories/CartRepository.php
 //  Lưu giỏ hàng persistent vào database
-// ============================================================
 
 class CartRepository
 {

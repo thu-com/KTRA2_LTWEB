@@ -1,14 +1,13 @@
 <?php
-// ============================================================
+
 //  public/index.php  –  Front Controller (Entry Point)
-// ============================================================
 // Thêm dòng này vào
 if (file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
     require_once dirname(__DIR__) . '/vendor/autoload.php';
 }
 if (!defined('BASE_PATH')) define('BASE_PATH', dirname(__DIR__));
 
-// ── Autoload ────────────────────────────────────────────────
+// Autoload 
 require_once BASE_PATH . '/config/config.php';
 require_once BASE_PATH . '/config/database.php';
 
@@ -47,12 +46,12 @@ require_once BASE_PATH . '/controllers/ProductController.php';
 require_once BASE_PATH . '/controllers/CartController.php';
 require_once BASE_PATH . '/controllers/OrderController.php';
 
-// ── Session ─────────────────────────────────────────────────
+//Session
 ini_set('session.name', SESSION_NAME);
 ini_set('session.gc_maxlifetime', SESSION_LIFETIME);
 session_start();
 
-// ── Router ──────────────────────────────────────────────────
+//Router 
 $requestUri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $scriptDir     = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 $path          = '/' . trim(str_replace($scriptDir, '', $requestUri), '/');
@@ -60,20 +59,20 @@ $method        = $_SERVER['REQUEST_METHOD'];
 
 // Route matching
 try {
-    // ── Auth ────────────────────────────────────────────────
+    //  Auth
     if ($path === '/auth/login'  && $method === 'GET')  { (new AuthController())->loginForm(); }
     elseif ($path === '/auth/login'  && $method === 'POST') { (new AuthController())->login(); }
     elseif ($path === '/auth/register' && $method === 'GET')  { (new AuthController())->registerForm(); }
     elseif ($path === '/auth/register' && $method === 'POST') { (new AuthController())->register(); }
     elseif ($path === '/auth/logout') { (new AuthController())->logout(); }
 
-    // ── Products ────────────────────────────────────────────
+    // Products 
     elseif ($path === '/' || $path === '/products') { (new ProductController())->index(); }
     elseif (preg_match('#^/products/(\d+)$#', $path, $m)) {
         (new ProductController())->detail((int)$m[1]);
     }
 
-    // ── Cart ────────────────────────────────────────────────
+    //Cart 
     elseif ($path === '/cart' && $method === 'GET')  { (new CartController())->index(); }
     elseif ($path === '/cart/add')                    { (new CartController())->add(); }
     elseif ($path === '/cart/update')                 { (new CartController())->update(); }
@@ -88,17 +87,17 @@ try {
         exit;
     }
 
-    // ── Checkout / Orders ────────────────────────────────────
+    //Checkout / Orders 
     elseif ($path === '/checkout' && $method === 'GET')  { (new OrderController())->checkout(); }
     elseif ($path === '/checkout' && $method === 'POST') { (new OrderController())->placeOrder(); }
     elseif ($path === '/orders')                          { (new OrderController())->myOrders(); }
     elseif (preg_match('#^/orders/(\d+)$#', $path, $m))  { (new OrderController())->detail((int)$m[1]); }
 
-    // ── Admin ────────────────────────────────────────────────
+    // Admin 
     elseif ($path === '/admin/orders')                     { (new OrderController())->adminOrders(); }
     elseif ($path === '/admin/orders/status' && $method === 'POST') { (new OrderController())->updateStatus(); }
 
-    // ── 404 ──────────────────────────────────────────────────
+    //404
     else {
         http_response_code(404);
         echo '<div style="text-align:center;padding:80px;font-family:sans-serif">

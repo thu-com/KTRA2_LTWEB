@@ -1,7 +1,5 @@
 <?php
-// ============================================================
 //  controllers/ProductController.php
-// ============================================================
 
 require_once BASE_PATH . '/controllers/BaseController.php';
 require_once BASE_PATH . '/repositories/ProductRepository.php';
@@ -16,7 +14,7 @@ class ProductController extends BaseController
         $this->productRepo = new ProductRepository($db);
     }
 
-    // ── GET /  hoặc  /products ───────────────────────────────
+    //GET /  hoặc  /products 
     public function index(): void
     {
         $search  = $this->sanitize($this->get('search', ''));
@@ -51,7 +49,7 @@ class ProductController extends BaseController
         ]);
     }
 
-    // ── GET /products/{id} ───────────────────────────────────
+    //GET /products/{id} 
     public function detail(int $id): void
     {
         $product = $this->productRepo->findProductById($id);

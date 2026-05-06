@@ -1,8 +1,6 @@
 <?php
-// ============================================================
 //  strategies/PremiumPricingStrategy.php
 //  Thành viên VIP: VAT 8%, miễn phí vận chuyển hoàn toàn
-// ============================================================
 
 require_once BASE_PATH . '/interfaces/PricingStrategyInterface.php';
 

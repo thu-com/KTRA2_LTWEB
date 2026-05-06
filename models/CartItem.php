@@ -1,7 +1,6 @@
 <?php
-// ============================================================
+
 //  models/CartItem.php
-// ============================================================
 
 require_once BASE_PATH . '/models/Product.php';
 
@@ -16,7 +15,7 @@ class CartItem
         }
     }
 
-    // ── Tính thành tiền ─────────────────────────────────────
+    //Tính thành tiền
     public function getSubtotal(): float
     {
         return $this->product->getPrice() * $this->quantity;
@@ -27,7 +26,7 @@ class CartItem
         return number_format($this->getSubtotal(), 0, ',', '.') . 'đ';
     }
 
-    // ── Cập nhật số lượng ───────────────────────────────────
+    //Cập nhật số lượng 
     public function setQuantity(int $qty): void
     {
         if ($qty < 1) throw new \InvalidArgumentException('Số lượng phải ≥ 1');
@@ -44,7 +43,7 @@ class CartItem
         $this->setQuantity($this->quantity + $by);
     }
 
-    // ── Getters ─────────────────────────────────────────────
+    //Getters
     public function getProduct(): Product { return $this->product; }
     public function getQuantity(): int    { return $this->quantity; }
 

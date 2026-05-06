@@ -1,7 +1,6 @@
 <?php
-// ============================================================
+
 //  services/OrderService.php  –  Business logic đặt hàng
-// ============================================================
 
 require_once BASE_PATH . '/models/Order.php';
 require_once BASE_PATH . '/repositories/OrderRepository.php';
@@ -20,7 +19,7 @@ class OrderService
         private EmailService      $emailService
     ) {}
 
-    // ── Tạo chiến lược giá theo tên ─────────────────────────
+    // Tạo chiến lược giá theo tên 
     public static function createStrategy(string $name): PricingStrategyInterface
     {
         return match ($name) {
@@ -30,7 +29,7 @@ class OrderService
         };
     }
 
-    // ── Đặt hàng ────────────────────────────────────────────
+    // Đặt hàng 
     public function placeOrder(
         int    $userId,
         array  $cartItems,        // từ ShoppingCart::toArray()
@@ -45,14 +44,14 @@ class OrderService
             return ['success' => false, 'message' => 'Vui lòng nhập địa chỉ giao hàng.'];
         }
 
-        // ── Tính tiền ─────────────────────────────────────
+        //Tính tiền 
         $strategy = self::createStrategy($strategyName);
         $subtotal = array_sum(array_column($cartItems, 'subtotal'));
         $vat      = $strategy->calculateVAT($subtotal);
         $shipping = $strategy->calculateShipping($subtotal);
         $total    = $subtotal + $vat + $shipping;
 
-        // ── Xây dựng Order object ─────────────────────────
+        // Xây dựng Order object
         $order = new Order([
             'user_id'          => $userId,
             'subtotal'         => $subtotal,
@@ -67,11 +66,11 @@ class OrderService
         ]);
 
         try {
-            // ── Lưu DB (transaction bên trong repo) ──────
+            // Lưu DB (transaction bên trong repo) 
             $orderId = $this->orderRepo->createOrder($order, $cartItems);
             $order->setId($orderId);
 
-            // ── Cập nhật tồn kho ─────────────────────────
+            // Cập nhật tồn kho 
             foreach ($cartItems as $item) {
                 $ok = $this->productRepo->decreaseStock(
                     (int)$item['product_id'],
@@ -87,7 +86,7 @@ class OrderService
                 }
             }
 
-            // ── Gửi email xác nhận ────────────────────────
+            // Gửi email xác nhận 
             $userRepo = new \UserRepository(
                 \Database::getInstance()->getConnection()
             );
@@ -112,25 +111,25 @@ class OrderService
         }
     }
 
-    // ── Lấy chi tiết đơn hàng ───────────────────────────────
+    //  Lấy chi tiết đơn hàng
     public function getOrder(int $orderId): ?array
     {
         return $this->orderRepo->findById($orderId);
     }
 
-    // ── Đơn hàng của user ───────────────────────────────────
+    //  Đơn hàng của user 
     public function getUserOrders(int $userId): array
     {
         return $this->orderRepo->findByUser($userId);
     }
 
-    // ── Tất cả đơn (admin) ──────────────────────────────────
+    // Tất cả đơn (admin) 
     public function getAllOrders(int $limit = 50, int $offset = 0): array
     {
         return $this->orderRepo->findAll($limit, $offset);
     }
 
-    // ── Preview tính tiền (không lưu DB) ────────────────────
+    // Preview tính tiền (không lưu DB)
     public function previewPricing(float $subtotal, string $strategyName): array
     {
         $strategy = self::createStrategy($strategyName);

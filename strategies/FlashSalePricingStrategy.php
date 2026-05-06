@@ -1,8 +1,6 @@
 <?php
-// ============================================================
 //  strategies/FlashSalePricingStrategy.php
 //  Flash Sale: VAT 10%, phí ship cố định 15k
-// ============================================================
 
 require_once BASE_PATH . '/interfaces/PricingStrategyInterface.php';
 

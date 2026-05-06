@@ -15,7 +15,7 @@ define('DB_CHARSET',  'utf8mb4');
 
 // ── Cấu hình Email ─────────────────────────────────────────
 define('MAIL_FROM',    'noreply@shop.com');
-define('MAIL_NAME',    'OOP Shop');
+define('MAIL_NAME',    'MOW Shop');
 define('MAIL_LOG',     false);        // Ghi log email ra file
 
 // ── Thuế & Vận chuyển mặc định ─────────────────────────────

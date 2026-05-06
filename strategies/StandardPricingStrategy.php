@@ -1,8 +1,7 @@
 <?php
-// ============================================================
+
 //  strategies/StandardPricingStrategy.php
 //  Chiến lược giá tiêu chuẩn: VAT 10%, ship 35k (miễn nếu ≥ 500k)
-// ============================================================
 
 require_once BASE_PATH . '/interfaces/PricingStrategyInterface.php';
 

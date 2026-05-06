@@ -1,7 +1,5 @@
 <?php
-// ============================================================
 //  interfaces/PricingStrategyInterface.php  –  Strategy Pattern
-// ============================================================
 
 interface PricingStrategyInterface
 {

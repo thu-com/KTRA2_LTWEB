@@ -1,7 +1,6 @@
 <?php
-// ============================================================
 //  controllers/CartController.php
-// ============================================================
+
 
 require_once BASE_PATH . '/controllers/BaseController.php';
 require_once BASE_PATH . '/services/CartService.php';
@@ -26,7 +25,7 @@ class CartController extends BaseController
         );
     }
 
-    // ── GET /cart ────────────────────────────────────────────
+    //GET /cart 
     public function index(): void
     {
         $data = $this->cartService->getCartData();
@@ -37,7 +36,7 @@ class CartController extends BaseController
         ]);
     }
 
-    // ── POST /cart/add  (AJAX + normal) ─────────────────────
+    //POST /cart/add  (AJAX + normal)
     public function add(): void
     {
         $productId = (int)$this->post('product_id', 0);
@@ -52,7 +51,7 @@ class CartController extends BaseController
         $this->redirect('/cart');
     }
 
-    // ── POST /cart/update  (AJAX) ────────────────────────────
+    // POST /cart/update  (AJAX)
     public function update(): void
     {
         $productId = (int)$this->post('product_id', 0);
@@ -70,7 +69,7 @@ class CartController extends BaseController
         $this->redirect('/cart');
     }
 
-    // ── POST /cart/remove  (AJAX + normal) ──────────────────
+    //POST /cart/remove  (AJAX + normal)
     public function remove(): void
     {
         $productId = (int)$this->post('product_id', 0);
@@ -85,7 +84,7 @@ class CartController extends BaseController
         $this->redirect('/cart');
     }
 
-    // ── GET /cart/count  (badge AJAX) ───────────────────────
+    //GET /cart/count  (badge AJAX)
     public function count(): void
     {
         $data = $this->cartService->getCartData();

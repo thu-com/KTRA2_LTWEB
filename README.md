@@ -1,4 +1,4 @@
-# 🛒 OOP Shop – Bài Tập Lập Trình Hướng Đối Tượng
+# 🛒 MOW Shop – Bài Tập Lập Trình Hướng Đối Tượng
 
 ## Giỏ Hàng & Đơn Đặt Hàng với Strategy Pattern
 

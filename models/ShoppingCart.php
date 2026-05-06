@@ -1,8 +1,6 @@
 <?php
-// ============================================================
-//  models/ShoppingCart.php
-// ============================================================
 
+//  models/ShoppingCart.php
 require_once BASE_PATH . '/models/CartItem.php';
 
 class ShoppingCart
@@ -10,7 +8,7 @@ class ShoppingCart
     /** @var CartItem[] key = product_id */
     private array $items = [];
 
-    // ── Thêm sản phẩm ───────────────────────────────────────
+    //Thêm sản phẩm 
     public function addItem(Product $product, int $qty = 1): void
     {
         if (!$product->isAvailable($qty)) {
@@ -35,13 +33,13 @@ class ShoppingCart
         }
     }
 
-    // ── Xóa sản phẩm ────────────────────────────────────────
+    // Xóa sản phẩm 
     public function removeItem(int $productId): void
     {
         unset($this->items[$productId]);
     }
 
-    // ── Cập nhật số lượng ───────────────────────────────────
+    //Cập nhật số lượng
     public function updateQuantity(int $productId, int $qty): void
     {
         if (!isset($this->items[$productId])) {
@@ -54,7 +52,7 @@ class ShoppingCart
         $this->items[$productId]->setQuantity($qty);
     }
 
-    // ── Tổng tiền hàng (chưa VAT, chưa ship) ───────────────
+    //Tổng tiền hàng (chưa VAT, chưa ship)
     public function getTotal(): float
     {
         return array_reduce(
@@ -64,13 +62,13 @@ class ShoppingCart
         );
     }
 
-    // ── Số lượng mặt hàng trong giỏ ────────────────────────
+    //Số lượng mặt hàng trong giỏ 
     public function getItemCount(): int
     {
         return count($this->items);
     }
 
-    // ── Tổng số sản phẩm (tính cả quantity) ────────────────
+    //Tổng số sản phẩm (tính cả quantity)
     public function getTotalQuantity(): int
     {
         return array_reduce(
@@ -101,7 +99,7 @@ class ShoppingCart
         return $this->items;
     }
 
-    // ── Tải items từ mảng dữ liệu DB ────────────────────────
+    //Tải items từ mảng dữ liệu DB
     public function loadFromArray(array $rows, callable $productFetcher): void
     {
         foreach ($rows as $row) {

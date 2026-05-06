@@ -7,7 +7,7 @@
 </footer>
 
 <script>
-// ── AJAX Cart Count Updater ──────────────────────────────────
+//  AJAX Cart Count Updater
 function updateCartBadge() {
     fetch('<?= APP_URL ?>/cart/count', {
         headers: {'X-Requested-With': 'XMLHttpRequest'}
@@ -20,7 +20,7 @@ function updateCartBadge() {
     .catch(() => {});
 }
 
-// ── Tự động ẩn flash sau 4s ─────────────────────────────────
+// Tự động ẩn flash sau 4s 
 document.querySelectorAll('.alert').forEach(el => {
     setTimeout(() => {
         el.style.transition = 'opacity .5s';
@@ -29,7 +29,7 @@ document.querySelectorAll('.alert').forEach(el => {
     }, 4000);
 });
 
-// ── Toast helper ────────────────────────────────────────────
+// Toast helper
 function showToast(msg, type = 'success') {
     const t = document.createElement('div');
     t.className = 'alert alert-' + (type === 'error' ? 'error' : 'success');

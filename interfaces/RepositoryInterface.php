@@ -1,7 +1,6 @@
 <?php
-// ============================================================
+
 //  interfaces/RepositoryInterface.php  –  Repository Pattern
-// ============================================================
 
 interface RepositoryInterface
 {

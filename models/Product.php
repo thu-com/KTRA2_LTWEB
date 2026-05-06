@@ -1,7 +1,6 @@
 <?php
-// ============================================================
 //  models/Product.php
-// ============================================================
+
 
 class Product
 {
@@ -26,13 +25,13 @@ class Product
         $this->createdAt   = (string)($data['created_at'] ?? '');
     }
 
-    // ── Kiểm tra tồn kho ────────────────────────────────────
+    // Kiểm tra tồn kho
     public function isAvailable(int $qty = 1): bool
     {
         return $this->stock >= $qty;
     }
 
-    // ── Getters ─────────────────────────────────────────────
+    //Getters
     public function getId(): int         { return $this->id; }
     public function getName(): string    { return $this->name; }
     public function getDescription(): string { return $this->description; }
@@ -46,7 +45,7 @@ class Product
         return number_format($this->price, 0, ',', '.') . 'đ';
     }
 
-    // ── Setters ─────────────────────────────────────────────
+    // Setters
     public function setStock(int $stock): void
     {
         if ($stock < 0) throw new \InvalidArgumentException('Tồn kho không thể âm');

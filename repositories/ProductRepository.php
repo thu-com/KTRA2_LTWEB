@@ -1,7 +1,7 @@
 <?php
-// ============================================================
+
 //  repositories/ProductRepository.php
-// ============================================================
+
 
 require_once BASE_PATH . '/interfaces/RepositoryInterface.php';
 require_once BASE_PATH . '/models/Product.php';

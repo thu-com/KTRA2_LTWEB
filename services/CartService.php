@@ -1,8 +1,7 @@
 <?php
-// ============================================================
+
 //  services/CartService.php  –  Business logic cho giỏ hàng
 //  Kết hợp ShoppingCart (domain) + CartRepository (persistence)
-// ============================================================
 
 require_once BASE_PATH . '/models/ShoppingCart.php';
 require_once BASE_PATH . '/repositories/CartRepository.php';
@@ -21,7 +20,7 @@ class CartService
         $this->loadFromDatabase();
     }
 
-    // ── Tải giỏ hàng từ DB vào domain object ────────────────
+    //Tải giỏ hàng từ DB vào domain object 
     private function loadFromDatabase(): void
     {
         $rows = $this->cartRepo->getByUser($this->userId);
@@ -37,7 +36,7 @@ class CartService
         }
     }
 
-    // ── Thêm sản phẩm ───────────────────────────────────────
+    //Thêm sản phẩm 
     public function addItem(int $productId, int $qty = 1): array
     {
         $product = $this->productRepo->findProductById($productId);
@@ -72,7 +71,7 @@ class CartService
         }
     }
 
-    // ── Xóa sản phẩm ────────────────────────────────────────
+    //Xóa sản phẩm 
     public function removeItem(int $productId): array
     {
         $this->cart->removeItem($productId);
@@ -80,7 +79,7 @@ class CartService
         return ['success' => true, 'message' => 'Đã xóa sản phẩm khỏi giỏ hàng.'];
     }
 
-    // ── Cập nhật số lượng ───────────────────────────────────
+    //Cập nhật số lượng 
     public function updateQuantity(int $productId, int $qty): array
     {
         if ($qty <= 0) {
@@ -104,7 +103,7 @@ class CartService
         }
     }
 
-    // ── Lấy thông tin giỏ hàng ──────────────────────────────
+    // Lấy thông tin giỏ hàng
     public function getCartData(): array
     {
         return [
@@ -122,7 +121,7 @@ class CartService
         return $this->cart;
     }
 
-    // ── Xóa toàn bộ giỏ hàng ────────────────────────────────
+    //Xóa toàn bộ giỏ hàng 
     public function clearCart(): void
     {
         $this->cart->clear();
