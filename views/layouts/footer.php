@@ -2,8 +2,7 @@
 </div><!-- /.container -->
 
 <footer style="background:var(--dark);color:#aaa;text-align:center;padding:20px;margin-top:40px;font-size:.85rem;">
-    <p>&copy; <?= date('Y') ?> <strong style="color:var(--primary)">MOW Shop</strong> – Bài tập MOW: Cart + Order + Strategy Pattern</p>
-    <p style="margin-top:4px;font-size:.78rem;">PHP MVC | Strategy Pattern | Repository Pattern | Singleton | Dependency Injection</p>
+    <p>&copy; <?= date('Y') ?> <strong style="color:var(--primary)">MOW Shop</strong> – Hệ sinh thái cây cảnh. All rights reserved.</p>
 </footer>
 
 <script>
