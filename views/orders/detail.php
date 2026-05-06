@@ -21,11 +21,15 @@
                 <?php foreach ($order['items'] as $item): ?>
                 <tr>
                     <td>
-                        <div style="display:flex;align-items:center;gap:10px">
-                            <div style="width:40px;height:40px;background:#f8f9fa;border-radius:6px;display:flex;align-items:center;justify-content:center">🛍️</div>
-                            <strong><?= htmlspecialchars($item['name']) ?></strong>
-                        </div>
-                    </td>
+                <div style="display:flex;align-items:center;gap:10px">
+                <div style="width:150px;height:150px;background:#f8f9fa;border-radius:6px;overflow:hidden;flex-shrink:0;">
+                <img src="<?= APP_URL ?>/assets/images/products/<?= $item['image'] ?>" 
+                 alt="<?= htmlspecialchars($item['name']) ?>" 
+                 style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <strong><?= htmlspecialchars($item['name']) ?></strong>
+    </div>
+</td>
                     <td><?= number_format($item['price'], 0, ',', '.') ?>đ</td>
                     <td><?= $item['quantity'] ?></td>
                     <td style="text-align:right;font-weight:600"><?= number_format($item['subtotal'], 0, ',', '.') ?>đ</td>
