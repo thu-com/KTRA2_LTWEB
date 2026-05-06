@@ -42,9 +42,6 @@
                                 <i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng
                             </button>
                         </div>
-                        <a href="<?= APP_URL ?>/checkout" class="btn btn-success">
-                            <i class="fa fa-bolt"></i> Mua ngay
-                        </a>
 
                         <?php else: ?>
                         <a href="<?= APP_URL ?>/auth/login" class="btn btn-primary">
