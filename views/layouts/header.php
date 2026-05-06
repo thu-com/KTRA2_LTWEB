@@ -6,6 +6,10 @@
     <title><?= htmlspecialchars($pageTitle ?? 'MOW Shop') ?> – MOW Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        footer {
+            position: sticky;
+            top: 100vh;
+        }
         :root {
                 --primary:      #3a6b45;   
                 --primary-dark: #2a4f33;   
