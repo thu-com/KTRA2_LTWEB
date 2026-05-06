@@ -25,16 +25,22 @@
         </div>
         <div id="cart-items-container">
         <?php foreach ($cartData['items'] as $pid => $item): ?>
+            
         <div class="cart-row" id="row-<?= $item['product_id'] ?>"
              style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--border)">
             <!-- Icon -->
-        <div style="width:64px;height:64px;background:#f8f9fa;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0">🛍️</div>
+            <div style="width:64px;height:64px;flex-shrink:0;border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <img src="<?= APP_URL ?>/assets/images/products/<?= $item['image'] ?>" 
+         alt="<?= htmlspecialchars($item['name']) ?>" 
+         style="width:100%;height:100%;object-fit:cover;">
+            </div>
             <!-- Info -->
             <div style="flex:1;min-width:0">
                 <a href="<?= APP_URL ?>/assets/images/products/<?= $item['product_id'] ?>"
                    style="font-weight:600;color:var(--dark)">
                     <?= htmlspecialchars($item['name']) ?>
                 </a>
+
                 <div style="color:var(--primary);font-weight:700;margin-top:4px">
                     <?= number_format($item['price'], 0, ',', '.') ?>đ / sản phẩm
                 </div>
