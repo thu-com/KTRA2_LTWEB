@@ -46,9 +46,13 @@ require_once BASE_PATH . '/controllers/ProductController.php';
 require_once BASE_PATH . '/controllers/CartController.php';
 require_once BASE_PATH . '/controllers/OrderController.php';
 
+
 //Session
 ini_set('session.name', SESSION_NAME);
 ini_set('session.gc_maxlifetime', SESSION_LIFETIME);
+session_set_cookie_params([
+    'lifetime' => SESSION_LIFETIME
+]);
 session_start();
 
 //Router 
@@ -61,7 +65,7 @@ $method        = $_SERVER['REQUEST_METHOD'];
 try {
     //  Auth
     if ($path === '/auth/login'  && $method === 'GET')  { (new AuthController())->loginForm(); }
-    elseif ($path === '/auth/login'  && $method === 'POST') { (new AuthController())->login(); }
+    elseif ($path === '/auth/login'  && $method === 'POST') { (new AuthController())->login(); } //gọi cnay khi user bấm
     elseif ($path === '/auth/register' && $method === 'GET')  { (new AuthController())->registerForm(); }
     elseif ($path === '/auth/register' && $method === 'POST') { (new AuthController())->register(); }
     elseif ($path === '/auth/logout') { (new AuthController())->logout(); }
