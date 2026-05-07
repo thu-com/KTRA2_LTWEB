@@ -45,7 +45,7 @@ class EmailService
             $mail->Port       = 587;
             $mail->CharSet    = 'UTF-8';
 
-            $mail->setFrom($this->gmailUser, 'OOP Shop');
+            $mail->setFrom($this->gmailUser, 'MOW Shop');
             $mail->addAddress($toEmail, $toName);
             $mail->isHTML(true);
             $mail->Subject = $subject;
