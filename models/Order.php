@@ -35,7 +35,7 @@ class Order
         $this->items           =          $data['items']            ?? [];
     }
 
-    // ── Getters ─────────────────────────────────────────────
+    //Getters 
     public function getId(): int              { return $this->id; }
     public function getUserId(): int          { return $this->userId; }
     public function getSubtotal(): float      { return $this->subtotal; }
@@ -51,7 +51,7 @@ class Order
 
     public function setId(int $id): void      { $this->id = $id; }
 
-    // ── Helpers hiển thị ───────────────────────────────────
+    //Helpers hiển thị
     public function getFormattedSubtotal(): string  { return number_format($this->subtotal,    0, ',', '.') . 'đ'; }
     public function getFormattedVAT(): string       { return number_format($this->vatAmount,   0, ',', '.') . 'đ'; }
     public function getFormattedShipping(): string  { return number_format($this->shippingFee, 0, ',', '.') . 'đ'; }
@@ -60,11 +60,11 @@ class Order
     public function getStatusLabel(): string
     {
         return match ($this->status) {
-            'pending'   => '⏳ Chờ xác nhận',
-            'confirmed' => '✅ Đã xác nhận',
-            'shipped'   => '🚚 Đang giao',
-            'delivered' => '🎉 Đã giao',
-            'cancelled' => '❌ Đã huỷ',
+            'pending'   => 'Chờ xác nhận',
+            'confirmed' => 'Đã xác nhận',
+            'shipped'   => 'Đang giao',
+            'delivered' => 'Đã giao',
+            'cancelled' => 'Đã huỷ',
             default     => $this->status,
         };
     }

@@ -39,7 +39,7 @@
             </div>
             <div class="card-body" style="display:flex;flex-direction:column;gap:12px">
                 <?php
-                $strategyLabels = ['standard' => '📦 Tiêu chuẩn', 'premium' => '⭐ VIP Member', 'flash_sale' => '⚡ Flash Sale'];
+                $strategyLabels = ['standard' => 'Tiêu chuẩn', 'premium' => 'VIP Member', 'flash_sale' => 'Flash Sale'];
                 foreach ($strategies as $key => $data):
                 ?>
                 <label class="strategy-card" data-key="<?= $key ?>"

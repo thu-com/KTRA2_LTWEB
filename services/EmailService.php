@@ -4,8 +4,8 @@ use PHPMailer\PHPMailer\Exception;
 
 class EmailService
 {
-    private string $gmailUser = 'linhchi04052004@gmail.com';     // <-- Gmail của bạn
-    private string $gmailPass = 'wdjv genp yeok ptif';   // <-- App Password (16 ký tự)
+    private string $gmailUser = 'linhchi04052004@gmail.com';     // Gmail của bạn
+    private string $gmailPass = 'wdjv genp yeok ptif';   //App Password (16 ký tự)
 
     public function sendOrderConfirmation(array $user, array $order): bool
     {

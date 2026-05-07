@@ -36,7 +36,7 @@ class OrderController extends BaseController
         );
     }
 
-    // ── GET /checkout ────────────────────────────────────────
+    //GET /checkout 
     public function checkout(): void
     {
         $cartData = $this->cartService->getCartData();
@@ -61,7 +61,7 @@ class OrderController extends BaseController
         ]);
     }
 
-    // ── POST /checkout ───────────────────────────────────────
+    //POST /checkout
     public function placeOrder(): void
     {
         $address  = $this->sanitize($this->post('shipping_address', ''));
@@ -86,7 +86,7 @@ class OrderController extends BaseController
         }
     }
 
-    // ── GET /orders ──────────────────────────────────────────
+    //GET /orders 
     public function myOrders(): void
     {
         $orders = $this->orderService->getUserOrders($this->userId);
@@ -97,7 +97,7 @@ class OrderController extends BaseController
         ]);
     }
 
-    // ── GET /orders/{id} ─────────────────────────────────────
+    //GET /orders/{id} 
     public function detail(int $orderId): void
     {
         $order = $this->orderService->getOrder($orderId);
@@ -112,7 +112,7 @@ class OrderController extends BaseController
         ]);
     }
 
-    // ── GET /admin/orders (admin only) ───────────────────────
+    //GET /admin/orders (admin only)
     public function adminOrders(): void
     {
         $user = AuthService::getCurrentUser();
@@ -127,7 +127,7 @@ class OrderController extends BaseController
         ]);
     }
 
-    // ── POST /admin/orders/status (admin only, AJAX) ─────────
+    //POST /admin/orders/status (admin only, AJAX)
     public function updateStatus(): void
     {
         $user = AuthService::getCurrentUser();
